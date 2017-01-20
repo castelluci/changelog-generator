@@ -1,20 +1,15 @@
 #!python3
-from __future__ import print_function
 import os
 import sys
 import subprocess
-
-def printerr(*args, **kwargs):
-	print('\n########## ERROR ##########', file=sys.stderr)
-	print(*args, file=sys.stderr, **kwargs)
-	print('###########################\n', file=sys.stderr)
+import err
 
 if not sys.argv or len(sys.argv) < 3 :
-	printerr('This program syntax is : \n' +
+	err.print('This program syntax is : \n' +
 				'\tchangelog-generator.py <PATH_TO_PROJECT> <RELEASE_BRANCH_NAME>')
 	exit('0001')
 elif not os.path.isdir(sys.argv[1]) :
-	printerr('The project path does not exists or contains a typo error. Please double check first argument')
+	err.print('The project path does not exists or contains a typo error. Please double check first argument')
 	exit('0002')
 
 CHANGELOG_FILE_NAME = 'CHANGELOG.md'
