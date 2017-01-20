@@ -25,6 +25,5 @@ def get_changelog_path() :
 	return changelog_path
 
 file = open(get_changelog_path(), 'a+')
-file.write('')
 file.close()
 exit('0')
